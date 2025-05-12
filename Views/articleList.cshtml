@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+    Layout = null; 
+    var articles = Model.Children().Where(x => x.ContentType.Alias == "article");
+}
+
+<h1>@Model.Name</h1>
+
+<ul>
+@foreach (var article in articles)
+{
+    <li>
+        <h2>@article.Value("title")</h2>
+        <p>@(article.Value("body")?.ToString().Substring(0, 100))...</p>
+        <a href="@article.Url()">Read more</a>
+    </li>
+}
+</ul>

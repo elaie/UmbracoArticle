@@ -1,5 +1,13 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-	Layout = null;
+    Layout = null; 
+    var title = Model.Value("title");
+    var body = Model.Value("body");
 }
+
+<article>
+    <h1>@title</h1>
+    <div>
+        @Html.Raw(body)
+    </div>
+</article>
